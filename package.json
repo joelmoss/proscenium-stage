@@ -1,0 +1,20 @@
+{
+  "name": "@proscenium/stage",
+  "version": "0.1.0",
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@proscenium/component-manager": "^0.3.1",
+    "open-props": "^1.5.1"
+  }
+}

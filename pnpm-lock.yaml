@@ -1,0 +1,32 @@
+lockfileVersion: 5.4
+
+specifiers:
+  '@proscenium/component-manager': ^0.3.1
+  open-props: ^1.5.1
+  prettier: ^2.8.0
+
+dependencies:
+  '@proscenium/component-manager': 0.3.1
+  open-props: 1.5.1
+
+devDependencies:
+  prettier: 2.8.0
+
+packages:
+
+  /@proscenium/component-manager/0.3.1:
+    resolution: {integrity: sha512-TOCflpMUWrSAMMhHelq/xGDbyRFPcGI0yMXknKh33Cwax+MaD4ktU0taz3SHgw23ASUfnK4KhNIixrwncX63/Q==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+    dev: false
+
+  /open-props/1.5.1:
+    resolution: {integrity: sha512-FA1T/0neIXWaJToPhS4HjBrgEFOeVOAUls9cOe1ME1BV4G25sIKdRNdZhzNNgOQ2RtfuZCTGtSKVnhjdD4Gzvg==}
+    dev: false
+
+  /prettier/2.8.0:
+    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
