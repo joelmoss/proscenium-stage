@@ -1,9 +1,9 @@
-import init from "@proscenium/component-manager?bundle"
-import RAILS_ENV from "env:RAILS_EMV"
+import init from "@proscenium/component-manager?bundle-all"
+import RAILS_ENV from "env:RAILS_ENV"
 
 init({
   debug: RAILS_ENV === "development",
   buildComponentPath(comp) {
-    return `/app/components${comp}.jsx`
+    return `${comp}/preview.jsx`
   }
 })

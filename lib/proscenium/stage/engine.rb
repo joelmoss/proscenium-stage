@@ -5,10 +5,13 @@ module Proscenium
     class Engine < ::Rails::Engine
       isolate_namespace Proscenium::Stage
 
-      config.proscenium.include_ruby_gems['proscenium-stage'] = root
+      config.proscenium.include_ruby_gems['proscenium-stage'] = {
+        root: root,
+        package_name: '@proscenium/stage'
+      }
 
       # Rails.autoloaders.main.collapse "#{__dir__}/app/views"
-      # config.autoload_paths << root.join('app', 'views')
+      # config.autoload_paths << root.join('app')
       # config.proscenium.include_paths += ['app/components']
 
       config.proscenium_stage = ActiveSupport::OrderedOptions.new

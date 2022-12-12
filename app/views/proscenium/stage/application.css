@@ -1,5 +1,5 @@
-@import "/app/lib/reset.css?bundle";
-@import "/app/lib/properties.css?bundle";
+@import "../../../lib/reset.css?bundle";
+@import "../../../lib/properties.css?bundle";
 
 body {
   font-family: var(--font-sans);

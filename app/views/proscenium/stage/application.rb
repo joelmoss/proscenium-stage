@@ -2,7 +2,9 @@
 
 module Proscenium::Stage::Views
   class Application < Proscenium::Phlex
+    include Rails.application.routes.mounted_helpers
     include Rails.application.routes.url_helpers
+
     include Proscenium::Phlex::Page
     include Proscenium::Phlex::ResolveCssModules
 

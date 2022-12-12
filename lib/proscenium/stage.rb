@@ -5,6 +5,10 @@ require 'proscenium/stage/engine'
 
 module Proscenium
   module Stage
+    extend ActiveSupport::Autoload
+
+    autoload :Preview
+
     class << self
       def config
         @config ||= Railtie.config.proscenium_stage
@@ -17,11 +21,17 @@ module Proscenium
     module_function
 
     def components
-      component_stage_path = Rails.root.join('app', 'components')
+      components_path = "#{Rails.root.join('app', 'components')}/"
+      components = []
 
-      Dir["#{component_stage_path}/**/*_preview.rb"].sort.each do |file|
-        require_dependency file
+      Dir["#{components_path}**/preview.rb"].each do |file|
+        path = file.delete_prefix(components_path).delete_suffix('/preview.rb')
+
+        methods = "components/#{path}/preview".classify.constantize.public_instance_methods(false)
+        methods.each { |meth| components << "#{path}/#{meth}" }
       end
+
+      components
     end
   end
 end

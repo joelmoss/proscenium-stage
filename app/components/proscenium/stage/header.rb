@@ -32,10 +32,7 @@ module Proscenium::Stage::Components
     private
 
     def options_for_component_select
-      helpers.options_for_select [
-        %w[Modal modal],
-        %w[Sheet sheet]
-      ], @component_path
+      helpers.options_for_select Proscenium::Stage.components, @component_path
     end
   end
 end
