@@ -21,14 +21,13 @@ module Proscenium
     module_function
 
     def components
-      components_path = "#{Rails.root.join('app', 'components')}/"
       components = []
 
-      Dir["#{components_path}**/preview.rb"].each do |file|
-        path = file.delete_prefix(components_path).delete_suffix('/preview.rb')
+      Dir["#{Rails.root.join('app', 'components')}/**/preview.rb"].each do |file|
+        component = Rails.autoloaders.main.load_file(file)
+        path = component.name.underscore
 
-        methods = "components/#{path}/preview".classify.constantize.public_instance_methods(false)
-        methods.each { |meth| components << "#{path}/#{meth}" }
+        component.public_instance_methods(false).each { |meth| components << "#{path}/#{meth}" }
       end
 
       components

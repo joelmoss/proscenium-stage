@@ -1,3 +1,6 @@
+@import "bundle:../../../../lib/reset.css";
+@import "bundle:open-props/stone";
+
 .unselected {
   display: grid;
   justify-items: center;

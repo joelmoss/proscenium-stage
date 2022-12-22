@@ -26,8 +26,8 @@ Gem::Specification.new do |spec|
     Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   end
 
-  spec.add_dependency 'phlex', '1.0.0.rc2'
-  spec.add_dependency 'phlex-rails'
+  spec.add_dependency 'phlex', '>= 1.0.0'
+  spec.add_dependency 'phlex-rails', '>= 0.4.0'
   spec.add_dependency 'proscenium', '>= 0.6.0'
   spec.add_dependency 'rails', '>= 7.0.4'
   spec.metadata['rubygems_mfa_required'] = 'true'

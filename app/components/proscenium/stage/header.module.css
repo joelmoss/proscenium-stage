@@ -1,3 +1,6 @@
+@import "bundle:open-props/stone";
+@import "bundle:open-props/shadows";
+
 header {
   border-bottom: 1px solid var(--stone-3);
   box-shadow: var(--shadow-2);

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Proscenium::Stage::Preview
-  class Component < Proscenium::Phlex::ReactComponent
+  class ReactComponent < Proscenium::Phlex::ReactComponent
     def initialize(...)
       loc = caller_locations(2, 1)[0]
       @preview_name = loc.label
@@ -10,6 +10,12 @@ class Proscenium::Stage::Preview
       self.class.path = loc.path
 
       super(...)
+    end
+
+    # Side load app/components/application_preview if any.
+    def before_template
+      Proscenium::SideLoad.append Rails.root.join('app', 'components', 'application_preview')
+      super
     end
 
     def virtual_path

@@ -7,7 +7,7 @@
     "trailingComma": "none"
   },
   "devDependencies": {
-    "prettier": "^2.8.0"
+    "prettier": "^2.8.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",

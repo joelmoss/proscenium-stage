@@ -7,7 +7,7 @@ module Proscenium::Stage::Views
 
       @preview_method = path.pop.to_sym
       @component_path = path.join('/')
-      @component_class = "Components::#{@component_path.classify}::Preview".constantize
+      @component_class = @component_path.classify.constantize
     end
 
     def template

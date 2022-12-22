@@ -1,4 +1,4 @@
-import init from "@proscenium/component-manager?bundle-all"
+import init from "bundle:@proscenium/component-manager"
 import RAILS_ENV from "env:RAILS_ENV"
 
 init({
