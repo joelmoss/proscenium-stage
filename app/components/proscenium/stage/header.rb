@@ -5,8 +5,8 @@ module Proscenium::Stage::Components
     include Proscenium::Phlex::ResolveCssModules
     include Proscenium::Stage::Engine.routes.url_helpers
 
-    def initialize(component_path = nil) # rubocop:disable Lint/MissingSuper
-      @component_path = component_path
+    def initialize(scene_path = nil) # rubocop:disable Lint/MissingSuper
+      @scene_path = scene_path
     end
 
     def template
@@ -16,23 +16,23 @@ module Proscenium::Stage::Components
         end
 
         div(class: '@select') do
-          if @component_path
-            a(href: _component_path(@component_path), target: '_blank') do
+          if @scene_path
+            a(href: _scene_path(@scene_path), target: '_blank') do
               'Open in new tab'
             end
           end
 
-          unsafe_raw helpers.select_tag 'components', options_for_component_select,
-                                        prompt: 'Select component...',
-                                        id: 'componentSelect'
+          unsafe_raw helpers.select_tag 'scenes', options_for_scene_select,
+                                        prompt: 'Select scene...',
+                                        id: 'sceneSelect'
         end
       end
     end
 
     private
 
-    def options_for_component_select
-      helpers.options_for_select Proscenium::Stage.components, @component_path
+    def options_for_scene_select
+      helpers.options_for_select Proscenium::Stage.scenes, @scene_path
     end
   end
 end

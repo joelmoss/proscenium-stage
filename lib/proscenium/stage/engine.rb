@@ -12,6 +12,7 @@ module Proscenium
 
       config.proscenium_stage = ActiveSupport::OrderedOptions.new
       config.proscenium_stage.title = 'Proscenium Stage'
+      config.proscenium_stage.paths = Set.new
 
       initializer 'proscenium-stage.autoload' do
         # Rails.autoloaders.main.ignore "#{root}/app/components"
@@ -27,6 +28,7 @@ module Proscenium
         options = app.config.proscenium_stage
 
         options.title = "#{app.class.name.deconstantize} Stage"
+        options.paths << app.root.join('app', 'components')
       end
     end
   end

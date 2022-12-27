@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Proscenium::Stage::Views
-  class Components::Index < Application
+  class Scenes::Index < Application
     def template
       super do
         render Proscenium::Stage::Components::Header.new
         main do
-          div(class: '@unselected') { 'No component currently selected 👀' }
+          div(class: '@unselected') { 'No scene currently selected 👀' }
         end
       end
     end

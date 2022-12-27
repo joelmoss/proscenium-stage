@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 Proscenium::Stage::Engine.routes.draw do
-  # Framed components
-  get '/components/*component' => 'components#show_framed', as: :component
+  get '/_/*path' => 'scenes#unframed', as: :_scene
+  get '/*path' => 'scenes#framed', as: :scene
 
-  # Unframed components
-  get '/_components/*component' => 'components#show_unframed', as: :_component
-
-  root 'components#index'
+  root 'scenes#index'
 end
