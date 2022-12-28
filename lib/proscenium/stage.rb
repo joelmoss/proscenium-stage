@@ -15,22 +15,20 @@ module Proscenium
       end
 
       def scenes
-        @scenes ||= begin
-          methods = []
+        methods = []
 
-          config.paths.each do |path|
-            Dir["#{path}/**/*/stage.rb"].each do |file|
-              stage = Rails.autoloaders.main.load_file(file)
-              stage_path = stage.name.underscore
+        config.paths.each do |path|
+          Dir["#{path}/**/*/stage.rb"].each do |file|
+            stage = Rails.autoloaders.main.load_file(file)
+            stage_path = stage.name.underscore
 
-              stage.public_instance_methods(false).each do |meth|
-                methods << "#{stage_path}/#{meth}"
-              end
+            stage.public_instance_methods(false).each do |meth|
+              methods << "#{stage_path}/#{meth}"
             end
           end
-
-          methods
         end
+
+        methods
       end
     end
 
