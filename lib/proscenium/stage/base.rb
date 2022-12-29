@@ -22,5 +22,9 @@ class Proscenium::Stage::Base
 
       super(...)
     end
+
+    def virtual_path
+      path.to_s.delete_prefix(Rails.root.to_s).sub(/stage\.rb$/, "stage/#{@scene}/scene.jsx")
+    end
   end
 end
