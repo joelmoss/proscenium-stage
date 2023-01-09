@@ -18,12 +18,13 @@ module Proscenium
         methods = []
 
         config.paths.each do |path|
-          Dir["#{path}/**/*/stage.rb"].each do |file|
+          Dir["#{path}/**/*/component_stage.rb"].each do |file|
             stage = Rails.autoloaders.main.load_file(file)
             stage_path = stage.name.underscore
 
             stage.public_instance_methods(false).each do |meth|
-              methods << "#{stage_path}/#{meth}"
+              methods << ["#{stage.name.delete_suffix('::ComponentStage')}##{meth}",
+                          "#{stage_path}/#{meth}"]
             end
           end
         end

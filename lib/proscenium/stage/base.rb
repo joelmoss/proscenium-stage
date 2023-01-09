@@ -2,7 +2,8 @@ class Proscenium::Stage::Base
   class Component
     def self.new(...)
       loc = caller_locations(1, 1)[0]
-      @actor = Rails.autoloaders.main.load_file(loc.path).module_parents.first
+
+      @actor = Rails.autoloaders.main.load_file(loc.path.sub('component_stage', 'component'))
       @scene = loc.label
 
       before_template
@@ -24,7 +25,8 @@ class Proscenium::Stage::Base
     end
 
     def virtual_path
-      path.to_s.delete_prefix(Rails.root.to_s).sub(/stage\.rb$/, "stage/#{@scene}/scene.jsx")
+      path.to_s.delete_prefix(Rails.root.to_s).sub(/component_stage\.rb$/,
+                                                   "stage/#{@scene}/scene.jsx")
     end
   end
 end
