@@ -15,8 +15,6 @@ module Proscenium
       config.proscenium_stage.paths = Set.new
 
       initializer 'proscenium-stage.autoload' do
-        # Rails.autoloaders.main.ignore "#{root}/app/components"
-
         loader = Rails.autoloaders.main
         loader.push_dir(root.join('app', 'views', 'proscenium', 'stage'),
                         namespace: Proscenium::Stage::Views)
