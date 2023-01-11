@@ -25,8 +25,8 @@ class Proscenium::Stage::Base
     end
 
     def virtual_path
-      path.to_s.delete_prefix(Rails.root.to_s).sub(/component_stage\.rb$/,
-                                                   "stage/#{@scene}/scene.jsx")
+      scene_path = path.sub(/component_stage\.rb$/, "stage/#{@scene}/scene.jsx")
+      "/#{Proscenium::Utils.path_pieces(scene_path).last}"
     end
   end
 end
